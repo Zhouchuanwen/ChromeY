@@ -1,7 +1,7 @@
 ﻿### 简易测试实践项目:chrome应用篇
 
 
-//TODO 每个人在这里改自己的英文名字 @Fizzxiao @@kameryf
+//TODO 每个人在这里改自己的英文名字 @Fizzxiao
 authors:
     Alan
     XiaoWen
