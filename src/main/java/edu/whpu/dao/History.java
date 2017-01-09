@@ -46,6 +46,8 @@ public class History {
     }
 
 
+    //TODO @kameryf 找出所有的表和字段
+
     public static void main(String[] args){
         try {
             History history=new History();
