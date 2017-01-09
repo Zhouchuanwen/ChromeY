@@ -48,19 +48,4 @@ public class History {
 
     //TODO @kameryf 找出所有的表和字段
 
-    public static void main(String[] args){
-        try {
-            History history=new History();
-            ResultSet rs=history.findAllVisitUrls();
-            while (rs.next()){
-                System.out.println(rs.getString(2));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-
-
-
 }

@@ -75,8 +75,7 @@ public class InitConfig {
             if(findTarget(uri)) {
                 String local=System.getProperty("user.dir") + "/src/main/resources/History";
                 File db = new File(local);
-                if(!db.exists())
-                    Files.copy(new File(uri), db);
+                Files.copy(new File(uri), db);
                 return initDataBase(local);
             }
         } catch (IOException e) {
