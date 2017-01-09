@@ -38,7 +38,7 @@ public class InitConfig {
                 uri="/.config/google-chrome/Default/History";
                 break;
             case "Windows":
-                uri="/AppData/Local/Google/Chrome/User Data/Default/History&/Local Settings/Application Data/Google/Chrome/User Data/Default/History";
+                uri="/AppData/Local/Google/Chrome/User Data/Default/History";
                 break;
             default:
                 return null;
