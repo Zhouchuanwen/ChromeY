@@ -18,5 +18,8 @@ public class Test {
 //            System.out.println(rs.getRow());
 //        }
 //    }
-
+	public static void main(String args[]){
+		System.out.println(System.getProperty("user.home"));
+		System.out.println(System.getProperty("os.name"));
+	}
 }
