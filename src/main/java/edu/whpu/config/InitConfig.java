@@ -26,9 +26,9 @@ import java.sql.Statement;
 public class InitConfig {
 
     public static String getOsInfo(){
-        String uri;
+    	String uri;
         switch (System.getProperty("os.name")){
-            case "Mac OS X":
+            case "Mac OS X":    
                 uri="/Library/Application Support/Google/Chrome/Default/History";
                 break;
             case "Mac OS":
@@ -71,9 +71,11 @@ public class InitConfig {
 
     public static Statement getStateMent(){
         try {
-            String uri=getOsInfo();
+        	String uri ="D:/Google Chrome/profil/Default/History";
+        	
             if(findTarget(uri)) {
-                String local=System.getProperty("user.dir") + "/src/main/resources/History";
+            	String local=System.getProperty("user.dir") + "\\src\\main\\resources\\History";
+            	System.out.print(local);
                 File db = new File(local);
                 Files.copy(new File(uri), db);
                 return initDataBase(local);
