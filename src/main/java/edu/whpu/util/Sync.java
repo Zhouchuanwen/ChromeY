@@ -51,15 +51,16 @@ public class Sync {
      * @param tableName
      * @param list
      */
-    public void createSql(String tableName,List<CreateSql> list){
-        StringBuilder sb=new StringBuilder(" CREATE TABLE "+tableName);
-        sb.append("(");
+    public static String createSql(String tableName,List<CreateSql> list){
+        StringBuilder sb=new StringBuilder();
+        sb.append(" CREATE TABLE `"+tableName+"`");
+        sb.append(" (");
         list.forEach(createSql -> {
-            sb.append(createSql.getColName()+" "+createSql.getTypeName()+"("+createSql.getColsize()+")"+createSql.getAddition(createSql.getAddition())+",");
+            sb.append("`"+createSql.getColName()+"` "+createSql.getTypeName(createSql.getTypeName())+" ("+createSql.getColsize()+") "+createSql.getAddition(createSql.getAddition())+",");
         });
-        sb.append(")");
+        sb.append(");");
         sb.deleteCharAt(sb.lastIndexOf(","));
-        System.out.println(sb.toString());
+        return sb.toString();
     }
 
 }

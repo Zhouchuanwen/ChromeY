@@ -58,27 +58,21 @@ public class Test {
             while (rs.next()){
                 tables.add(rs.getString(1));
             }
-
-            List<CreateSql> list=new ArrayList<>();
             tables.forEach(i->{
+                List<CreateSql> list=new ArrayList<>();
                 try {
-                    CreateSql.CreateSqlBuilder createSql=CreateSql.builder();
-
                     ResultSet resultSet=sync.findColNameByTable(i);
-
                     ResultSetMetaData data = resultSet.getMetaData();
                     for(int j=1;j<=data.getColumnCount();j++){
-                        createSql.colName(data.getColumnName(j));
-                        createSql.typeName(data.getColumnTypeName(j));
-                        createSql.colsize(data.getColumnType(j));
-                        createSql.addition(data.isNullable(j));
-                        list.add(createSql.build());
+                        CreateSql createSql=CreateSql.builder().colName(data.getColumnName(j)).typeName(data.getColumnTypeName(j))
+                                .colsize(data.getColumnType(j)).addition(data.isNullable(j)).build();
+                        list.add(createSql);
                     }
                     System.out.println();
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
-                sync.createSql(i,list);
+                System.out.println(sync.createSql(i,list));
             });
         } catch (SQLException e) {
             e.printStackTrace();

@@ -24,7 +24,15 @@ public class CreateSql {
     private int addition;
 
     public String getAddition(int addition){
-        return addition==1?"DEFAULT NULL":"NOT NULL";
+        return addition==1?"DEFAULT NULL":"NOT NULL ";
+    }
+
+
+    public String getTypeName(String typeName){
+        if(typeName.equals("LONGVARCHAR")){
+            return "VARCHAR";
+        }
+        return typeName;
     }
 
 }
