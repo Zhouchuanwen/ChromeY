@@ -18,11 +18,17 @@ import java.util.List;
  */
 public class History {
 
-
     private Statement statement;
 
     public History(){
         this.statement=InitConfig.getStateMent();
+    }
+
+    public Statement getStatement() {
+        if(statement==null){
+            return InitConfig.getStateMent();
+        }
+        return statement;
     }
 
     /**
@@ -62,30 +68,6 @@ public class History {
         return null;
     }
 
-    //TODO @kameryf 找出所有的表和字段
-    public ResultSet  findAllTable(){
-    	try {
-    		ResultSet rs =statement.executeQuery("SELECT name FROM sqlite_master "
-					+ "WHERE type='table';");
-			return rs;
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    	return null;
-    }
-
-    public ResultSet findColum(){
-    	try {
-    		String sql = "select * from sqlite_master where type = 'table';";
-			ResultSet resultSet = statement.executeQuery(sql);
-			return resultSet;
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    	return null;
-    }
 
 
     /**

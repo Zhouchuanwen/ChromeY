@@ -1,45 +1,24 @@
-
-import edu.whpu.dao.History;
+import edu.whpu.bean.CreateSql;
 import edu.whpu.util.MyDateUtils;
+import edu.whpu.util.Sync;
 
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by alan on 17/1/8.
  */
 public class Test {
 
-
 	public static void main(String args[]) throws SQLException{
-		History history = new History();
-		ResultSet rs = history.findAllTable();
-		System.out.println("数据库中的表有：");
-		try {
-			while(rs.next()){
-				System.out.println(rs.getString(1));
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		ResultSet re = history.findColum();
-		ResultSetMetaData data=re.getMetaData();
-		System.out.println("数据库的列数为："+data.getColumnCount());
-		System.out.println("数据库中列的名称：");
-		try {
-			for(int i = 1;i <= data.getColumnCount();i++) {
-				System.out.println(data.getColumnName(i));
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+        //meta downloads downloads_url_chains urls visits visit_source keyword_search_terms segments segment_usage
 	}
 
-
-
 	@org.junit.Test
-	public void test(){
+	public void testTime(){
 
 		MyDateUtils.getLastYear().forEach((i,j)->{
 			System.out.println(i+":"+j);
@@ -67,8 +46,43 @@ public class Test {
 
         int num=MyDateUtils.diff(MyDateUtils.String2Date("2016-06-27"),MyDateUtils.String2Date("2016-11-05"));
         System.out.println("days:"+num);
+    }
 
 
+    @org.junit.Test
+    public void test(){
+        try {
+            Sync sync=new Sync();
+            ResultSet rs=sync.findAllTable();
+            List<String> tables=new ArrayList<>();
+            while (rs.next()){
+                tables.add(rs.getString(1));
+            }
+
+            List<CreateSql> list=new ArrayList<>();
+            tables.forEach(i->{
+                try {
+                    CreateSql.CreateSqlBuilder createSql=CreateSql.builder();
+
+                    ResultSet resultSet=sync.findColNameByTable(i);
+
+                    ResultSetMetaData data = resultSet.getMetaData();
+                    for(int j=1;j<=data.getColumnCount();j++){
+                        createSql.colName(data.getColumnName(j));
+                        createSql.typeName(data.getColumnTypeName(j));
+                        createSql.colsize(data.getColumnType(j));
+                        createSql.addition(data.isNullable(j));
+                        list.add(createSql.build());
+                    }
+                    System.out.println();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                sync.createSql(i,list);
+            });
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 }

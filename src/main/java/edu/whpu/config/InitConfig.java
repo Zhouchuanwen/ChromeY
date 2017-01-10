@@ -71,11 +71,9 @@ public class InitConfig {
 
     public static Statement getStateMent(){
         try {
-        	String uri ="D:/Google Chrome/profil/Default/History";
-        	
+        	String uri =getOsInfo();
             if(findTarget(uri)) {
-            	String local=System.getProperty("user.dir") + "\\src\\main\\resources\\History";
-            	System.out.print(local);
+            	String local=System.getProperty("user.dir") + "/src/main/resources/History";
                 File db = new File(local);
                 Files.copy(new File(uri), db);
                 return initDataBase(local);
