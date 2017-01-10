@@ -46,6 +46,11 @@ public class Sync {
     }
 
 
+    /**
+     * 创建sql的建表语句
+     * @param tableName
+     * @param list
+     */
     public void createSql(String tableName,List<CreateSql> list){
         StringBuilder sb=new StringBuilder(" CREATE TABLE "+tableName);
         sb.append("(");
