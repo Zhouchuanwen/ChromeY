@@ -1,4 +1,4 @@
-import edu.whpu.config.InitConfig;
+
 import edu.whpu.dao.History;
 
 import java.sql.ResultSet;
