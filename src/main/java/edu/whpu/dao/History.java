@@ -2,8 +2,6 @@ package edu.whpu.dao;
 
 import edu.whpu.bean.Record;
 import edu.whpu.config.InitConfig;
-import edu.whpu.util.MyDateUtils;
-import org.junit.Test;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -33,7 +31,7 @@ public class History {
     }
 
     /**
-     * 获取用户每天的访问数量
+     * 获取用户每天的访问记录
      */
     public List<Record> countDailyVisits(){
         try {
@@ -48,6 +46,21 @@ public class History {
         }
         return null;
     }
+
+
+    /**
+     * 获取今日最早与最晚记录
+     * @return
+     */
+    public List<Record> first(){
+        try {
+            statement.executeQuery("");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 
 
     /**
@@ -89,6 +102,16 @@ public class History {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return null;
+    }
+
+
+    /**
+     * 按照关键字查询记录
+     * @param key
+     * @return
+     */
+    public List<Record> findRecordByKey(String key){
         return null;
     }
 

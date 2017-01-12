@@ -25,5 +25,9 @@ public class Record {
      */
     private int num;
 
+    /**
+     * 访问类型
+     */
+    private String types;
 
 }
