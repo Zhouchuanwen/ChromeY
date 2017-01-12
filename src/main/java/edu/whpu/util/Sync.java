@@ -13,7 +13,7 @@ import static com.sun.xml.internal.fastinfoset.alphabet.BuiltInRestrictedAlphabe
 
 /**
  *
- * 自动同步数据到本地mysql
+ * 数据到本地mysql
  * Created by alan on 17/1/10.
  */
 public class Sync {

@@ -11,10 +11,19 @@ import lombok.Data;
 @Builder
 public class Record {
 
+    /**
+     *  访问时间
+     */
     private Long visit;
 
     private String url;
 
     private String title;
+
+    /**
+     * 访问数量
+     */
+    private int num;
+
 
 }

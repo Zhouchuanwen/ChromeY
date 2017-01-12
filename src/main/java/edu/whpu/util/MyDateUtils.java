@@ -3,6 +3,7 @@ package edu.whpu.util;
 
 import org.apache.commons.lang.time.DateUtils;
 import org.apache.commons.lang.time.FastDateFormat;
+import org.junit.Test;
 
 import java.text.ParseException;
 import java.util.*;
@@ -191,7 +192,7 @@ public class MyDateUtils {
 
 
     /**
-     * 计算两个日期之间的差
+     * 计算两个日期之间的天数差
      */
     public static Integer diff(Date start, Date end) {
         c.clear();
@@ -202,6 +203,21 @@ public class MyDateUtils {
         long time2 = c.getTimeInMillis();
         Long between_days = (time2 - time1) / (1000 * 3600 * 24);
         return Math.abs(between_days.intValue());
+    }
+
+
+    /**
+     * 计算两个时间的差
+     */
+    public static int minutes(Date start,Date end) {
+        long diff = (end.getTime() - start.getTime()) / 1000;
+        if(diff<0)
+            return -1;
+        if (diff / 60 < 60)
+            return (int) diff / 60;
+        if (diff / 3600 <= 24 && diff / 3600 > 0)
+            return (int) diff / 3600;
+        return diff(start, end);
     }
 
 

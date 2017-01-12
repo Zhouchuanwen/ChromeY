@@ -6,16 +6,13 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
  * Created by alan on 17/1/8.
  */
 public class Test {
-
-	public static void main(String args[]) throws SQLException{
-        //meta downloads downloads_url_chains urls visits visit_source keyword_search_terms segments segment_usage
-	}
 
 	@org.junit.Test
 	public void testTime(){
@@ -77,6 +74,17 @@ public class Test {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+
+
+    @org.junit.Test
+    public void print() throws InterruptedException {
+        Date start=new Date();
+        Thread.sleep(2000);
+        Date end=new Date("2017/1/13");
+        int num=MyDateUtils.minutes(start,end);
+        System.out.println(num);
     }
 
 }

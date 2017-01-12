@@ -2,6 +2,7 @@ package edu.whpu.dao;
 
 import edu.whpu.bean.Record;
 import edu.whpu.config.InitConfig;
+import edu.whpu.util.MyDateUtils;
 import org.junit.Test;
 
 import java.sql.ResultSet;
@@ -32,25 +33,25 @@ public class History {
     }
 
     /**
-     * 获取
+     * 获取用户每天的访问数量
      */
-    @Test
-    public void countDailyVisits(){
+    public List<Record> countDailyVisits(){
         try {
-            String sql="SELECT visit_day,count(1) AS  count FROM ( SELECT round(visit_time/1000000/3600/24)*1000000*3600*24 as visit_day from visits) WHERE visits.visit_time between "+1+" and "+10+" group by visit_day" +
-                " order by visit_day";
-            ResultSet rs=statement.executeQuery(sql);
+            //TODO 修改sql
+            ResultSet rs=statement.executeQuery(" select visits.visit_time,urls.url,urls.title" +
+                    " from visits, urls on visits.url = urls.id; ");
             while (rs.next()){
-                System.out.println(rs.getString(1)+rs.getString(2));
             }
+            return null;
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return null;
     }
 
 
     /**
-     *  获取用户所有的历史记录
+     * 获取用户所有的历史记录
      * @return
      */
     public List<Record> findAllRecords(){

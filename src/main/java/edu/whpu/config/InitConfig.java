@@ -1,8 +1,5 @@
 package edu.whpu.config;
 
-/**
- * Created by alan on 17/1/8.
- */
 
 import com.google.common.base.Strings;
 import com.google.common.io.Files;
@@ -15,20 +12,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
- *
- * TODO @kameryf @Fizzxiao: understand the code and try to optimize it.
- * 说明:
- * 由于不同系统chrome的history文件的目录地址可能会不同
- * 所以需要针对系统做判断然后去对应的目录下查找
- * 找到之后,为了保护原文件不受损害,需要使用copy来创建sqlite数据库
- * 然后提供查询接口
+ * Created by alan on 17/1/8.
  */
 public class InitConfig {
 
     public static String getOsInfo(){
     	String uri;
         switch (System.getProperty("os.name")){
-            case "Mac OS X":    
+            case "Mac OS X":
                 uri="/Library/Application Support/Google/Chrome/Default/History";
                 break;
             case "Mac OS":
