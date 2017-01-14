@@ -1,4 +1,4 @@
-package edu.whpu.bean;
+package com.alan.bean;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

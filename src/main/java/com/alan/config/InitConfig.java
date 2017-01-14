@@ -1,4 +1,4 @@
-package edu.whpu.config;
+package com.alan.config;
 
 
 import com.google.common.base.Strings;

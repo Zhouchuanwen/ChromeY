@@ -1,15 +1,12 @@
-package edu.whpu.util;
+package com.alan.util;
 
-import edu.whpu.bean.CreateSql;
-import edu.whpu.dao.History;
+import com.alan.bean.CreateSql;
+import com.alan.dao.History;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
-import java.util.Map;
-
-import static com.sun.xml.internal.fastinfoset.alphabet.BuiltInRestrictedAlphabets.table;
 
 /**
  *

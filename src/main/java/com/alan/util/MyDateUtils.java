@@ -1,4 +1,4 @@
-package edu.whpu.util;
+package com.alan.util;
 
 
 import org.apache.commons.lang.time.DateUtils;

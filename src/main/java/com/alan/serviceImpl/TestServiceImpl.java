@@ -1,6 +1,6 @@
-package edu.whpu.serviceImpl;
+package com.alan.serviceImpl;
 
-import edu.whpu.service.TestService;
+import com.alan.service.TestService;
 
 /**
  * Created by alan on 17/1/9.

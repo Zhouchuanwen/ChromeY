@@ -1,4 +1,4 @@
-package edu.whpu.bean;
+package com.alan.bean;
 
 /**
  * Created by alan on 17/1/11.

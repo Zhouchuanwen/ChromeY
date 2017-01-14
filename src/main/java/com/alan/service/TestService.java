@@ -1,4 +1,4 @@
-package edu.whpu.service;
+package com.alan.service;
 
 
 

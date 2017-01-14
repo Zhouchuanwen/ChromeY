@@ -1,4 +1,4 @@
-package edu.whpu;
+package com.alan;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

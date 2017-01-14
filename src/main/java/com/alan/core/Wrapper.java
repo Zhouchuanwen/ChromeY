@@ -1,4 +1,4 @@
-package edu.whpu.core;
+package com.alan.core;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

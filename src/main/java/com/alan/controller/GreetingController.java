@@ -1,6 +1,6 @@
-package edu.whpu.controller;
+package com.alan.controller;
 
-import edu.whpu.core.Wrapper;
+import com.alan.core.Wrapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;

@@ -1,6 +1,6 @@
-import edu.whpu.bean.CreateSql;
-import edu.whpu.util.MyDateUtils;
-import edu.whpu.util.Sync;
+import com.alan.bean.CreateSql;
+import com.alan.util.MyDateUtils;
+import com.alan.util.Sync;
 
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
