@@ -6,6 +6,7 @@ import org.apache.commons.lang.time.FastDateFormat;
 import org.junit.Test;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -219,6 +220,48 @@ public class MyDateUtils {
             return (int) diff / 3600;
         return diff(start, end);
     }
+
+
+    /**
+     * http://www.epochconverter.com/webkit =>去该网站的js中找到算法
+     * webkit时间转unix时间
+     * @param time
+     * @return
+     */
+    public static long webkitTime2Unix(long time){
+        long sec=Math.round((double) (time/1000000));
+        sec-=11644473600L;
+        return new Date(sec*1000).getTime();
+    }
+
+
+    /**
+     * unix时间转Webkit时间
+     * @param time
+     * @return
+     */
+    public static long unixTime2WebKitTime(long time){
+        long sec=time/1000;
+        sec+=11644473600L;
+        return sec*1000000;
+    }
+
+
+//    /**
+//     * 计算unix&webkit时间差
+//     * @return
+//     */
+//    private static long diff(){
+//        try {
+//            SimpleDateFormat sf=new SimpleDateFormat("YYYY-MM-DD HH:mm:ss Z");
+//            Date webkit = sf.parse("1601-01-01 00:00:00 +0000");
+//            Date unix = sf.parse("1970-01-01 00:00:00 +0000");
+//            return Math.abs(unix.getTime() - webkit.getTime());
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
+//        return 0L;
+//    }
 
 
 }

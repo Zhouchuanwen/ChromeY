@@ -87,4 +87,11 @@ public class Test {
         System.out.println(num);
     }
 
+
+    @org.junit.Test
+    public void timeTest() {
+        Long t = 13128837614670223L;
+        System.out.println(MyDateUtils.webkitTime2Unix(t));
+    }
+
 }
