@@ -3,6 +3,7 @@ package com.alan.dao;
 import com.alan.bean.Record;
 import com.alan.config.InitConfig;
 import com.alan.util.MyDateUtils;
+import org.springframework.stereotype.Service;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,6 +14,8 @@ import java.util.*;
 /**
  * Created by alan on 17/1/6.
  */
+
+@Service
 public class History {
 
     private Statement statement;
@@ -96,7 +99,6 @@ public class History {
         try {
             List<Record> list=new ArrayList<>();
             String sql="select visits.visit_time,urls.url,urls.title from visits, urls on visits.url = urls.id where visits.visit_time between "+start+" and "+end+" order by visit_time";
-            System.out.println(sql);
             ResultSet rs=statement.executeQuery(sql);
             while (rs.next()){
                 list.add(Record.builder().visit(rs.getLong(1)).url(rs.getString(2)).title(rs.getString(3)).build());
@@ -138,6 +140,7 @@ public class History {
      */
     public List<Record> countURLsFrequence(long start,long end){
         try {
+
             List<Record> list=new ArrayList<>();
             String sql="select url,title, sum(urls.visit_count) as visit_count from urls where id in" +
                     " ( select distinct(url) from visits where visit_time BETWEEN "+start+" and "+end+" ) and title!='' " +
