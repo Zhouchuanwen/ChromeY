@@ -234,7 +234,6 @@ public class MyDateUtils {
         return new Date(sec*1000).getTime();
     }
 
-
     /**
      * unix时间转Webkit时间
      * @param time
@@ -245,23 +244,5 @@ public class MyDateUtils {
         sec+=11644473600L;
         return sec*1000000;
     }
-
-
-//    /**
-//     * 计算unix&webkit时间差
-//     * @return
-//     */
-//    private static long diff(){
-//        try {
-//            SimpleDateFormat sf=new SimpleDateFormat("YYYY-MM-DD HH:mm:ss Z");
-//            Date webkit = sf.parse("1601-01-01 00:00:00 +0000");
-//            Date unix = sf.parse("1970-01-01 00:00:00 +0000");
-//            return Math.abs(unix.getTime() - webkit.getTime());
-//        } catch (ParseException e) {
-//            e.printStackTrace();
-//        }
-//        return 0L;
-//    }
-
 
 }

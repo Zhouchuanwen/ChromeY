@@ -25,8 +25,7 @@ public class HistoryTest {
     public void findAllRecords(){
         History history=new History();
         history.findAllRecords().forEach((i)->{
-            Date d=new Date(MyDateUtils.webkitTime2Unix(i.getVisit()));
-            System.out.println(MyDateUtils.date2String(d)+"  >   "+i.getUrl()+"   >    "+i.getTitle());
+            System.out.println((i.getVisit()+"  >   "+i.getUrl()+"   >    "+i.getTitle()));
         });
     }
 
@@ -35,8 +34,7 @@ public class HistoryTest {
     public void countDailyVisits(){
         History history=new History();
         history.countDailyVisits().forEach((i)->{
-            Date d=new Date(MyDateUtils.webkitTime2Unix(i.getVisit()));
-            System.out.println(MyDateUtils.date2String(d)+"  >   "+i.getUrl()+"   >    "+i.getTitle());
+            System.out.println(i.getVisit()+"  >   "+i.getUrl()+"   >    "+i.getTitle());
         });
     }
 
@@ -48,7 +46,7 @@ public class HistoryTest {
         long s=MyDateUtils.unixTime2WebKitTime(MyDateUtils.timeAtStartOfDay());
         long e=MyDateUtils.unixTime2WebKitTime(MyDateUtils.timeAtEndOfDay());
         history.findRecordsByTime(s,e).forEach((i)->{
-            System.out.println(MyDateUtils.webkitTime2Unix(i.getVisit())+"  >   "+i.getUrl()+"   >   "+i.getTitle());
+            System.out.println(i.getVisit()+"  >   "+i.getUrl()+"   >   "+i.getTitle());
         });
     }
 

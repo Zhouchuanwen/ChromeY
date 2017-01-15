@@ -2,7 +2,6 @@ package com.alan.service;
 
 
 import com.alan.bean.Record;
-
 import java.util.List;
 import java.util.Map;
 
@@ -15,10 +14,10 @@ public interface HistoryService {
 
     Map<Long,Long> getHistoryRange();
 
-    List<Record> getHistoryByDate(long start,long end);
+    List<Record> getHistoryByDate(Long start, Long end);
 
     List<Record> daliyHistory();
 
-    List<Record> getHistoryCountByDate(long start,long end);
+    List<Record> getHistoryCountByDate(Long start,Long end);
 
 }

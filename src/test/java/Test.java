@@ -90,8 +90,10 @@ public class Test {
 
     @org.junit.Test
     public void timeTest() {
-        Long t = 13128837614670223L;
-        System.out.println(MyDateUtils.webkitTime2Unix(t));
+        Long t = 13128948409000000L;
+        long unix=MyDateUtils.webkitTime2Unix(t);
+        System.out.println(unix);
+        System.out.println(MyDateUtils.time2String(new Date(unix)));
     }
 
 }

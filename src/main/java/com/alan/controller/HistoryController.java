@@ -1,13 +1,19 @@
 package com.alan.controller;
 
+import com.alan.bean.Record;
 import com.alan.core.Wrapper;
 import com.alan.service.HistoryService;
+import com.alan.util.MyDateUtils;
+import com.alan.util.Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.ws.rs.QueryParam;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by alan on 17/1/9.
@@ -39,15 +45,24 @@ public class HistoryController {
 
     @RequestMapping("/query")
     @ResponseBody
-    public Wrapper getHistoryByDate(@QueryParam("start") long start,@QueryParam("end")long end) {
-        return Wrapper.builder().data(historyService.getHistoryByDate(start,end)).build();
+    public Wrapper getHistoryByDate(@QueryParam("state") String state) {
+        Map<Long,Long> map=Util.state2time(state);
+        for (Long start:map.keySet()){
+            List<Record> list=historyService.getHistoryByDate(start,map.get(start));
+            return Wrapper.builder().data(list).build();
+        }
+        return Wrapper.ERROR;
     }
 
     @RequestMapping("/count")
     @ResponseBody
-    public Wrapper getHistoryCountByDate(@QueryParam("start") long start,@QueryParam("end")long end) {
-        return Wrapper.builder().data(historyService.getHistoryCountByDate(start,end)).build();
+    public Wrapper getHistoryCountByDate(@QueryParam("state") String state) {
+        Map<Long,Long> map=Util.state2time(state);
+        for (Long start:map.keySet()){
+            List<Record> list=historyService.getHistoryCountByDate(start,map.get(start));
+            return Wrapper.builder().data(list).build();
+        }
+        return Wrapper.ERROR;
     }
-
 
 }

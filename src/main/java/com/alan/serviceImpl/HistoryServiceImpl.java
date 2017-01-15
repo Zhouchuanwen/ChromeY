@@ -25,12 +25,12 @@ public class HistoryServiceImpl implements HistoryService {
     }
 
     @Override
-    public Map<Long, Long> getHistoryRange() {
+    public Map<Long,Long> getHistoryRange() {
         return history.getHistoryRange();
     }
 
     @Override
-    public List<Record> getHistoryByDate(long start,long end) {
+    public List<Record> getHistoryByDate(Long start,Long end) {
         return history.findRecordsByTime(MyDateUtils.unixTime2WebKitTime(start),MyDateUtils.unixTime2WebKitTime(end));
     }
 
@@ -40,7 +40,7 @@ public class HistoryServiceImpl implements HistoryService {
     }
 
     @Override
-    public List<Record> getHistoryCountByDate(long start, long end) {
+    public List<Record> getHistoryCountByDate(Long start, Long end) {
         return history.countURLsFrequence(MyDateUtils.unixTime2WebKitTime(start),MyDateUtils.unixTime2WebKitTime(end));
     }
 

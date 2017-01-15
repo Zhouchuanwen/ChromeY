@@ -14,7 +14,7 @@ public class Record {
     /**
      *  访问时间
      */
-    private Long visit;
+    private String visit;
 
     private String url;
 

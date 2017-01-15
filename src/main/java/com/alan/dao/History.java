@@ -62,7 +62,8 @@ public class History {
             ResultSet rs=statement.executeQuery(" select visits.visit_time,urls.url,urls.title" +
                     " from visits, urls on visits.url = urls.id; ");
             while (rs.next()){
-                list.add(Record.builder().visit(rs.getLong(1)).url(rs.getString(2)).title(rs.getString(3)).build());
+                Date day=new Date(MyDateUtils.webkitTime2Unix(rs.getLong(1)));
+                list.add(Record.builder().visit(MyDateUtils.time2String(day)).url(rs.getString(2)).title(rs.getString(3)).build());
             }
             return list;
         } catch (SQLException e) {
@@ -101,7 +102,8 @@ public class History {
             String sql="select visits.visit_time,urls.url,urls.title from visits, urls on visits.url = urls.id where visits.visit_time between "+start+" and "+end+" order by visit_time";
             ResultSet rs=statement.executeQuery(sql);
             while (rs.next()){
-                list.add(Record.builder().visit(rs.getLong(1)).url(rs.getString(2)).title(rs.getString(3)).build());
+                Date day=new Date(MyDateUtils.webkitTime2Unix(rs.getLong(1)));
+                list.add(Record.builder().visit(MyDateUtils.time2String(day)).url(rs.getString(2)).title(rs.getString(3)).build());
             }
             return list;
         } catch (SQLException e) {
@@ -123,7 +125,8 @@ public class History {
                     " from visits, urls on visits.url = urls.id WHERE urls.title like '%"+content+"%' ;";
             ResultSet rs=statement.executeQuery(sql);
             while (rs.next()){
-                list.add(Record.builder().visit(rs.getLong(1)).url(rs.getString(2)).title(rs.getString(3)).build());
+                Date day=new Date(MyDateUtils.webkitTime2Unix(rs.getLong(1)));
+                list.add(Record.builder().visit(MyDateUtils.time2String(day)).url(rs.getString(2)).title(rs.getString(3)).build());
             }
             return list;
         } catch (SQLException e) {
