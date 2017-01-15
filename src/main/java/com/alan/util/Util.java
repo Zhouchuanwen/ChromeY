@@ -1,5 +1,8 @@
 package com.alan.util;
 
+import org.testng.util.Strings;
+
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,6 +15,8 @@ public class Util {
 
     public static Map<Long,Long> state2time(String time){
         Map<String,String> map=new HashMap<>();
+        if(Strings.isNullOrEmpty(time))
+            return Collections.emptyMap();
         switch(time){
             case "1":
                 map.put(MyDateUtils.timeAtStartOfDayStr(),MyDateUtils.timeAtEndOfDayStr());
